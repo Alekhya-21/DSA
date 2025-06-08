@@ -16,23 +16,7 @@ public:
         }
     }
     return {};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// way 2
 
     // int low=0,high=numbers.size()-1;
     // int num1=0,num2=0;
