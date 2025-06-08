@@ -12,3 +12,6 @@ public:
     return 1;
     }
 };
+// slope m=(y2-y1)/(x2-x1) (for linear equation)
+// m=y/x;
+// x*(y2-y1)=y*(x2-x1)
