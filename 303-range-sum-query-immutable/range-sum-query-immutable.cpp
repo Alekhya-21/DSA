@@ -12,9 +12,7 @@ public:
         if(left==0){
             return arr[right];
         }
-        else{
-            return arr[right]-arr[left-1];
-        }
+        return arr[right]-arr[left-1];
     }
 };
 
