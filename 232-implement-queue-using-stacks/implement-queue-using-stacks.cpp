@@ -1,7 +1,7 @@
 class MyQueue {
 public:
-    stack<int> input;
-    stack<int> output;
+stack<int> input;
+stack<int> output;
     MyQueue() {
         
     }
@@ -29,7 +29,7 @@ public:
                 input.pop();
             }
         }
-        return output.top();
+        return output.top();  
     }
     
     bool empty() {
