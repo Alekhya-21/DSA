@@ -23,25 +23,6 @@ public:
     }
     return res;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // vector<int> arr;
     // for(int i=0;i<nums1.size();i++){
     //     auto it=find(nums2.begin(),nums2.end(),nums1[i]);
