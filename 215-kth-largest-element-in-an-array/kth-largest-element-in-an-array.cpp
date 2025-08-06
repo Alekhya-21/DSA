@@ -8,6 +8,6 @@ public:
                 minHeap.pop();
             }
         }
-        return minHeap.top();
+    return minHeap.top();
     }
 };
