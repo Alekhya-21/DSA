@@ -32,7 +32,7 @@ public:
             len++;
             tail=tail->next;
         }
-        if(head==NULL || head->next==NULL || k%len==0){
+        if(head==NULL || head->next==NULL || k%len==0 || k==0){
             return head;
         }
         k=k%len;
