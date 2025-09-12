@@ -9,11 +9,11 @@
  * };
  */
 class Solution {
-ListNode* reverseList(ListNode* head){
+ListNode* reverse(ListNode* head){
     if(head==NULL || head->next==NULL){
         return head;
     }
-    ListNode* newhead=reverseList(head->next);
+    ListNode* newhead=reverse(head->next);
     ListNode* front=head->next;
     front->next=head;
     head->next=NULL;
@@ -21,28 +21,24 @@ ListNode* reverseList(ListNode* head){
 }
 public:
     bool isPalindrome(ListNode* head) {
-        // find the middle element
-        // reverse the second half
-        // compare the values using two pointers
-        ListNode* slow=head;
-        ListNode* fast=head;
-        while(fast->next!=NULL && fast->next->next!=NULL){
-            slow=slow->next;
-            fast=fast->next->next;
+       ListNode* slow=head;
+       ListNode* fast=head;
+       while(fast->next!=NULL && fast->next->next!=NULL){
+        slow=slow->next;
+        fast=fast->next->next;
+       }
+       ListNode* newhead=reverse(slow->next);
+       ListNode* first=head;
+       ListNode* second=newhead;
+       while(second!=NULL){
+        if(first->val!=second->val){
+            reverse(newhead);
+            return 0;
         }
-        ListNode* newhead=reverseList(slow->next);
-        ListNode* first=head;
-        ListNode* second=newhead;
-
-        while(second!=NULL){
-            if(first->val!=second->val){
-                reverseList(newhead);
-                return 0;
-            }
-            first=first->next;
-            second=second->next;
-        }
-        reverseList(newhead);
-        return 1;
+        first=first->next;
+        second=second->next;
+       }
+       reverse(newhead);
+       return 1;
     }
 };
