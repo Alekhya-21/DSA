@@ -38,7 +38,6 @@ public:
         if(carry){
             ListNode* newnode=new ListNode(carry);
             curr->next=newnode;
-            curr=curr->next;
         }
     return dummyNode->next;
     }
