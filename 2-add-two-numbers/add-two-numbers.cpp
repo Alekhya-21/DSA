@@ -20,20 +20,16 @@ public:
             int sum=carry;
             if(temp1){
                 sum+=temp1->val;
+                temp1=temp1->next;
             }
             if(temp2){
                 sum+=temp2->val;
+                temp2=temp2->next;
             }
             ListNode* newnode=new ListNode(sum%10);
             carry=sum/10;
             curr->next=newnode;
-            curr=curr->next;
-            if(temp1){
-                temp1=temp1->next;
-            }
-            if(temp2){
-                temp2=temp2->next;
-            }
+            curr=newnode;
         }
         if(carry){
             ListNode* newnode=new ListNode(carry);
