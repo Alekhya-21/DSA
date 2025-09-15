@@ -9,11 +9,11 @@
  * };
  */
 class Solution {
-ListNode* reverseList(ListNode* head){
+ListNode* reverse(ListNode* head){
     if(head==NULL || head->next==NULL){
         return head;
     }
-    ListNode* newhead=reverseList(head->next);
+    ListNode* newhead=reverse(head->next);
     ListNode* front=head->next;
     front->next=head;
     head->next=NULL;
@@ -21,26 +21,23 @@ ListNode* reverseList(ListNode* head){
 }
 public:
     void reorderList(ListNode* head) {
-        // find the middle element
-        // reverse the second half
-        // relink the list using two pointers
         ListNode* slow=head;
         ListNode* fast=head;
         while(fast->next!=NULL && fast->next->next!=NULL){
             slow=slow->next;
             fast=fast->next->next;
         }
-        ListNode* newhead=reverseList(slow->next);
+        ListNode* newhead=reverse(slow->next);
         slow->next=NULL;
         ListNode* first=head;
         ListNode* second=newhead;
         while(second!=NULL){
-            ListNode* temp1=first->next;
-            ListNode* temp2=second->next;
+            ListNode* t1=first->next;
+            ListNode* t2=second->next;
             first->next=second;
-            second->next=temp1;
-            first=temp1;
-            second=temp2;
+            second->next=t1;
+            first=t1;
+            second=t2;
         }
     }
 };
