@@ -4,35 +4,10 @@ public:
     int low=0,high=0;
     while(high<nums.size()){
         if(nums[high]!=0){
-            swap(nums[high],nums[low]);
+            swap(nums[low],nums[high]);
             low++;
         }
         high++;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // int low=0,high=0;
-    // while(high<nums.size()){
-    //     if(nums[high]!=0){
-    //         swap(nums[low],nums[high]);
-    //         low++;
-    //     }
-    //     high++;
-    // }
     }
 };
