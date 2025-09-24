@@ -9,17 +9,17 @@
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        int lenA=1;
-        int lenB=1;
-        ListNode *tempA=headA;
-        ListNode *tempB=headB;
-        while(tempA->next!=NULL){
+        ListNode* t1=headA;
+        ListNode* t2=headB;
+        int lenA=0;
+        int lenB=0;
+        while(t1!=NULL){
             lenA++;
-            tempA=tempA->next;
+            t1=t1->next;
         }
-        while(tempB->next!=NULL){
+        while(t2!=NULL){
             lenB++;
-            tempB=tempB->next;
+            t2=t2->next;
         }
         while(lenA>lenB){
             lenA--;
