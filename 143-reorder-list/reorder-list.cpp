@@ -31,7 +31,7 @@ public:
         slow->next=NULL;
         ListNode* first=head;
         ListNode* second=newhead;
-        while(second!=NULL){
+        while(first!=NULL && second!=NULL){
             ListNode* t1=first->next;
             ListNode* t2=second->next;
             first->next=second;
