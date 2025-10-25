@@ -1,24 +1,21 @@
 class Solution {
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
-    vector<int> res;
-    map<int,int> m1;
+    map<int,int> mp;
     for(int i=0;i<nums.size();i++){
-        m1[nums[i]]++;
+        mp[nums[i]]++;
     }
-    // copy map into vector
-    vector<pair<int,int>> vec(m1.begin(),m1.end());
-    // sort the vector in descending order
-    sort(vec.begin(),vec.end(),[](auto a,auto b){
+    vector<pair<int,int>> arr(mp.begin(),mp.end());
+    sort(arr.begin(),arr.end(),[](auto a,auto b){
         return a.second>b.second;
     });
+    vector<int> res;
     int count=1;
-    // store the frequent elements in another vector
-    for(auto it:vec){
+    for(int i=0;i<arr.size();i++){
         if(count<=k){
-            res.push_back(it.first);
+            res.push_back(arr[i].first);
+            count++;
         }
-        count++;
     }
     return res;
     }
