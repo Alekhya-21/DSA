@@ -1,6 +1,7 @@
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
+    // 0(log n)
     if(nums.empty()){
         return 0;
     }
