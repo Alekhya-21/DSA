@@ -1,4 +1,4 @@
-// O(log m + log n)
+// //O(log m + log n)
 // class Solution {
 // public:
 //     bool func(vector<int>& matrix,int target,int n){
@@ -46,40 +46,13 @@
 //     }
 // };
 
-// O(log(m * n))
-// class Solution {
-// public:
-//     bool searchMatrix(vector<vector<int>>& matrix, int target) {
-//         bool flag=false;
-//         int m=matrix.size();
-//         int n=matrix[0].size();
-//         int low=0,high=m*n-1;
-//         while(low<=high){
-//             int mid=(low+high)/2;
-//             int row=mid/n;
-//             int col=mid%n;
-//             if(matrix[row][col]==target){
-//                 flag=true;
-//                 return flag;
-//             }
-//             else if(target<matrix[row][col]){
-//                 high=mid-1;
-//             }
-//             else{
-//                 low=mid+1;
-//             }
-//         }
-//         return flag;
-//     }
-// };
-
-
+//O(log(m * n))
 class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        bool flag=false;
         int m=matrix.size();
         int n=matrix[0].size();
-        bool flag=false;
         int low=0,high=m*n-1;
         while(low<=high){
             int mid=(low+high)/2;
@@ -89,7 +62,7 @@ public:
                 flag=true;
                 return flag;
             }
-            else if(matrix[row][col]>target){
+            else if(target<matrix[row][col]){
                 high=mid-1;
             }
             else{
@@ -99,6 +72,9 @@ public:
         return flag;
     }
 };
+
+
+
 
 
 
