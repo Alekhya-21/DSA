@@ -3,16 +3,16 @@ public:
     vector<int> arr;
     NumArray(vector<int>& nums) {
         arr=nums;
-        for(int i=1;i<nums.size();i++){
+        for(int i=1;i<arr.size();i++){
             arr[i]=arr[i]+arr[i-1];
         }
     }
     
     int sumRange(int left, int right) {
-        if(left==0){
-            return arr[right];
+        if(left==0) return arr[right];
+        else{
+            return arr[right]-arr[left-1];
         }
-        return(arr[right]-arr[left-1]);
     }
 };
 
