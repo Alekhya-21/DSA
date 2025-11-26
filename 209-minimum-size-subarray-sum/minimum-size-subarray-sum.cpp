@@ -1,27 +1,24 @@
 class Solution {
 public:
     int minSubArrayLen(int target, vector<int>& nums) {
-    int n=nums.size();
-    int minWindow=INT_MAX;
-    int flag=0;
-    int currSum=0;
-    int low=0,high=0; // two pointers
-    while(high<n){
-        currSum+=nums[high];
-        high++;
-        while(currSum>=target){
-            int currWindowSize=high-low;
-            minWindow=min(minWindow,currWindowSize);
-            flag=1;
-            currSum-=nums[low];
-            low++;
+        int left=0;
+        int right=0;
+        int window_size=0;
+        int min_window=INT_MAX;
+        int sum=0;
+        bool flag=false;
+        while(right<nums.size()){
+            sum+=nums[right];
+            while(sum>=target){
+                window_size=right-left+1;
+                min_window=min(min_window,window_size);
+                sum-=nums[left];
+                left++;
+                flag=true;
+            }
+            right++;
         }
-    }
-    if(flag==1){
-        return minWindow;
-    }
-    else{
-        return 0;
-    }
+        if(!flag) return 0;
+        return min_window;
     }
 };
