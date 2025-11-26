@@ -1,27 +1,36 @@
 class Solution {
 public:
     string longestPalindrome(string s) {
+        if(s.length()<=0){
+            return s;
+        }
+        // creating an empty string which stores the result string
         string res="";
-        for(int i=0;i<s.size();i++){
+        // we are applying Expand around center logic
+        // consider odd length
+        for(int i=0;i<s.length();i++){
             int low=i;
             int high=i;
-            while(low>=0 && high<s.size() && s[low]==s[high]){
+            // expanding to the left and right from center
+            while(low>=0 && high<s.length() && s[low]==s[high]){
                 low--;
                 high++;
             }
-            string temp=s.substr(low+1,high-low-1);
-            if(temp.size()>res.size()){
-                res=temp;
+            // try to replace the longest palindrome substring
+            string palindrome=s.substr(low+1,high-low-1);
+            if(palindrome.length()>res.length()){
+                res=palindrome;
             }
-            low=i;
-            high=i+1;
-            while(low>=0 && high<s.size() && s[low]==s[high]){
+            // consider even length
+            low=i-1;
+            high=i;
+            while(low>=0 && high<s.length() && s[low]==s[high]){
                 low--;
                 high++;
             }
-            temp=s.substr(low+1,high-low-1);
-            if(temp.size()>res.size()){
-                res=temp;
+            palindrome=s.substr(low+1,high-low-1);
+            if(palindrome.length()>res.length()){
+                res=palindrome;
             }
         }
         return res;
