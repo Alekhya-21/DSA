@@ -6,10 +6,15 @@ stack<int> st;
     }
     
     void push(int x) {
-        st.push(x);
-        for(int i=0;i<st.size()-1;i++){
-            st.push(st.top());
-            st.pop();
+        if(st.empty()){
+            st.push(x);
+        }
+        else{
+            st.push(x);
+            for(int i=0;i<st.size()-1;i++){
+                st.push(st.top());
+                st.pop();
+            }
         }
     }
     
