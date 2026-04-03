@@ -1,25 +1,48 @@
+// Approach 1
+// class Solution {
+// public:
+//     void func(vector<int>& nums,vector<bool>& map,vector<int>& temp,vector<vector<int>>& res){
+//         if(temp.size()==nums.size()){
+//             res.push_back(temp);
+//             return;
+//         }
+//         for(int i=0;i<nums.size();i++){
+//             if(!map[i]){
+//                 map[i]=true;
+//                 temp.push_back(nums[i]);
+//                 func(nums,map,temp,res);
+//                 temp.pop_back();
+//                 map[i]=false;
+//             }
+//         }
+//     }
+//     vector<vector<int>> permute(vector<int>& nums) {
+//         vector<bool> map(nums.size());
+//         vector<int> temp;
+//         vector<vector<int>> res;
+//         func(nums,map,temp,res);
+//         return res;
+//     }
+// };
+
+// Approach 2
 class Solution {
 public:
-    void solve(vector<int>& arr,vector<int>& nums,vector<vector<int>>& res,vector<bool>& mp){
-        if(arr.size()==nums.size()){
-            res.push_back(arr);
+    void func(int ind,vector<int>& nums,vector<vector<int>>& res){
+        if(ind==nums.size()){
+            res.push_back(nums);
             return;
         }
-        for(int j=0;j<nums.size();j++){
-            if(!mp[j]){
-                mp[j]=true;
-                arr.push_back(nums[j]);
-                solve(arr,nums,res,mp);
-                arr.pop_back();
-                mp[j]=false;
-            }
+        for(int i=ind;i<nums.size();i++){
+            swap(nums[i],nums[ind]);
+            func(ind+1,nums,res);
+            swap(nums[i],nums[ind]);
         }
     }
     vector<vector<int>> permute(vector<int>& nums) {
-        vector<int> arr;
+        int ind=0;
         vector<vector<int>> res;
-        vector<bool> mp(3,false);
-        solve(arr,nums,res,mp);
+        func(ind,nums,res);
         return res;
     }
 };
