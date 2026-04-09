@@ -30,6 +30,7 @@
 // };
 
 // DP
+// TC- O(n), SC- O(n)
 class Solution {
 public:
     int func(int n,vector<int>& dp){
