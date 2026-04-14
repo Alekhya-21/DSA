@@ -18,5 +18,5 @@ class Solution:
     def minFallingPathSum(self, matrix: List[List[int]]) -> int:
         n=len(matrix)
         dp=[[0 for _ in range(n)] for _ in range(n)]
-        self.func(n-1,0,n,dp,matrix)
+        self.func(n-1,n-1,n,dp,matrix)
         return min(dp[n-1])
