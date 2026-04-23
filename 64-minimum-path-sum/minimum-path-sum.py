@@ -2,15 +2,13 @@ class Solution:
     def func(self,i,j,dp,grid):
         if(i==0 and j==0):
             return grid[i][j]
+        if(i<0 or j<0):
+            return float('inf')
         if(dp[i][j]!=-1):
             return dp[i][j]
-        up=float("inf")
-        left=float("inf")
-        if(i>0):
-            up=grid[i][j]+self.func(i-1,j,dp,grid)
-        if(j>0):
-            left=grid[i][j]+self.func(i,j-1,dp,grid)
-        dp[i][j]=min(up,left)
+        left=grid[i][j]+self.func(i,j-1,dp,grid)
+        up=grid[i][j]+self.func(i-1,j,dp,grid)
+        dp[i][j]=min(left,up)
         return dp[i][j]
     def minPathSum(self, grid: List[List[int]]) -> int:
         m=len(grid)
