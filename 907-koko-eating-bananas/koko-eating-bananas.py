@@ -1,15 +1,3 @@
-# class Solution:
-#     def can_koko_eat(self,mini,piles,h):
-#         count=0
-#         for i in range(0,len(piles)):
-#             count+=(math.ceil(piles[i]/mini))
-#         return count<=h
-#     def minEatingSpeed(self, piles: List[int], h: int) -> int:
-#         high=max(piles)
-#         for i in range(1,high+1):
-#             if(self.can_koko_eat(i,piles,h)):
-#                 return i
-
 class Solution:
     def can_koko_eat(self,mini,piles,h):
         count=0
