@@ -16,6 +16,7 @@ class Solution:
                 nums1[b]=nums1[a]
                 a-=1
                 b-=1
+        # remaining elements
         while(c>=0):
             nums1[b]=nums2[c]
             b-=1
