@@ -4,6 +4,7 @@ class Solution:
         openn=0
         close=0
         i=0
+        # forward traversal to remove extra -> ')'
         while(i<len(arr)):
             if(arr[i]=='('):
                 openn+=1
@@ -16,6 +17,7 @@ class Solution:
                     arr.pop(i)
             else:
                 i+=1
+        # backward traversal to remove incomplete '('
         i=len(arr)-1
         while(i>=0):
             if(arr[i]=='(' and openn!=close):
