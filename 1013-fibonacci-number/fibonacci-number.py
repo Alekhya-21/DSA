@@ -1,5 +1,13 @@
 class Solution:
+    def solve(self,dp,n):
+        if dp[n]!=-1:
+            return dp[n]
+        dp[n]=self.solve(dp,n-1)+self.solve(dp,n-2)
+        return dp[n]
     def fib(self, n: int) -> int:
-        if(n==0 or n==1):
+        dp=[-1]*(n+1)
+        if(n<=1):
             return n
-        return self.fib(n-1)+self.fib(n-2)
+        dp[0]=0
+        dp[1]=1
+        return self.solve(dp,n)
